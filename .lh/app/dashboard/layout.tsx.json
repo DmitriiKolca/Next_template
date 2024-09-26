@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1726481134947,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1727376846439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n import SideNav from '@/app/ui/dashboard/sidenav';\r\n+\r\n+export const experimental_ppr = true;\r\n  \r\n export default function Layout({ children }: { children: React.ReactNode }) {\r\n   return (\r\n     <div className=\"flex h-screen flex-col md:flex-row md:overflow-hidden\">\r\n"
                 }
             ],
             "date": 1726481134947,
