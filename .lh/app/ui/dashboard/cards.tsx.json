@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/ui/dashboard/cards.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1727117071178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1727117084351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,16 +25,16 @@\n   return (\n     <>\n       {/* NOTE: Uncomment this code in Chapter 9 */}\n \n-      {/* <Card title=\"Collected\" value={totalPaidInvoices} type=\"collected\" />\n+      <Card title=\"Collected\" value={totalPaidInvoices} type=\"collected\" />\n       <Card title=\"Pending\" value={totalPendingInvoices} type=\"pending\" />\n       <Card title=\"Total Invoices\" value={numberOfInvoices} type=\"invoices\" />\n       <Card\n         title=\"Total Customers\"\n         value={numberOfCustomers}\n         type=\"customers\"\n-      /> */}\n+      />\n     </>\n   );\n }\n \n"
+                }
+            ],
+            "date": 1727117071178,
+            "name": "Commit-0",
+            "content": "import {\n  BanknotesIcon,\n  ClockIcon,\n  UserGroupIcon,\n  InboxIcon,\n} from '@heroicons/react/24/outline';\nimport { lusitana } from '@/app/ui/fonts';\nimport { fetchCardData } from '@/app/lib/data';\n\nconst iconMap = {\n  collected: BanknotesIcon,\n  customers: UserGroupIcon,\n  pending: ClockIcon,\n  invoices: InboxIcon,\n};\n\nexport default async function CardWrapper() {\n  const {\n    numberOfInvoices,\n    numberOfCustomers,\n    totalPaidInvoices,\n    totalPendingInvoices,\n  } = await fetchCardData();\n  \n  return (\n    <>\n      {/* NOTE: Uncomment this code in Chapter 9 */}\n\n      {/* <Card title=\"Collected\" value={totalPaidInvoices} type=\"collected\" />\n      <Card title=\"Pending\" value={totalPendingInvoices} type=\"pending\" />\n      <Card title=\"Total Invoices\" value={numberOfInvoices} type=\"invoices\" />\n      <Card\n        title=\"Total Customers\"\n        value={numberOfCustomers}\n        type=\"customers\"\n      /> */}\n    </>\n  );\n}\n\nexport function Card({\n  title,\n  value,\n  type,\n}: {\n  title: string;\n  value: number | string;\n  type: 'invoices' | 'customers' | 'pending' | 'collected';\n}) {\n  const Icon = iconMap[type];\n\n  return (\n    <div className=\"rounded-xl bg-gray-50 p-2 shadow-sm\">\n      <div className=\"flex p-4\">\n        {Icon ? <Icon className=\"h-5 w-5 text-gray-700\" /> : null}\n        <h3 className=\"ml-2 text-sm font-medium\">{title}</h3>\n      </div>\n      <p\n        className={`${lusitana.className}\n          truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}\n      >\n        {value}\n      </p>\n    </div>\n  );\n}\n"
+        }
+    ]
+}
